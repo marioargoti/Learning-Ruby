@@ -1,0 +1,31 @@
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>                
+                <th>Name</th>                
+                <th>Phone</th>
+                <th>Email</th>                
+            </tr>
+        </thead>
+        <tbody>
+        <%@doctor.each do|i|%>
+            <tr>                
+                <td><%=i.name%></td>                
+                <td><%=i.phone%></td>
+                <td><%=i.email%></td> 
+                <td>
+                <%=link_to controller: "doctores", action: "edit", id:i.id do%>
+                    <i class="far fa-edit fa-2x"></i>
+                <%end%>
+                </td>
+                <td>
+                <%=link_to controller: "doctores", action: "destroy", id:i.id do%>
+                    <i class="far fa-trash-alt fa-2x"></i>
+                <%end%>
+                </td>                                
+            </tr>
+          <%end%>
+        </tbody>        
+    </table>
+
+<%=link_to "New Doctor", {controller: "doctores", action: "add"}, class: "btn btn-primary"%>
+    
